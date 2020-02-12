@@ -1,0 +1,22 @@
+.grid-container {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas: /**/
+    ". . ."/**/
+    ". main-menu ."/**/
+    ". . ."/**/
+    ;
+}
+
+.main-menu {
+    grid-area: main-menu;
+    align-self: center;
+    text-align: center;
+}
+
+.btn {
+    color: inherit;
+}
