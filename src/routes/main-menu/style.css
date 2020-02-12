@@ -9,6 +9,7 @@
     ". main-menu ."/**/
     ". . ."/**/
     ;
+    font-size: large;
 }
 
 .main-menu {
@@ -18,5 +19,10 @@
 }
 
 .btn {
-    color: inherit;
+    color: black;
+}
+
+.btn:hover {
+    background-color: grey;
+    color: white;
 }
