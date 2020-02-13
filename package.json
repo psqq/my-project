@@ -30,9 +30,10 @@
     "per-env": "^1.0.2",
     "preact-cli": "^3.0.0-rc.6",
     "preact-render-spy": "^1.2.1",
-    "serve": "^11.1.0"
-  },
-  "dependencies": {
+    "python-range": "^1.0.4",
+    "rot-js": "^2.1.1",
+    "serve": "^11.1.0",
+    "victor": "^1.1.0",
     "preact": "^10.0.1",
     "preact-render-to-string": "^5.1.0",
     "preact-router": "^3.0.0"

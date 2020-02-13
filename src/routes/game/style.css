@@ -1,0 +1,26 @@
+.grid-container {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas: ". top-box help-button" "left-buttons level right-buttons" ". msg-box .";
+}
+
+.msg-box {
+    grid-area: msg-box;
+}
+
+.level {
+    grid-area: level;
+    align-self: center;
+    justify-self: center;
+}
+
+.left-buttons {
+    grid-area: left-buttons;
+}
+
+.right-buttons {
+    grid-area: right-buttons;
+}
