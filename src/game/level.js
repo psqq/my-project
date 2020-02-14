@@ -2,13 +2,22 @@ import Victor from 'victor';
 import range from 'python-range';
 import Space from './space';
 import { make } from '@psqq/tools';
+import Unit from './unit';
 
 export default class Level {
     constructor() {
         this.size = new Victor(1, 1);
-        this.objects = [];
+        /** @type {Unit[]} */
+        this.units = [];
+        this.items = [];
         /** @type {Space[][]} */
         this.spaces = [];
+    }
+    /**
+     * @param {Unit} unit 
+     */
+    addUnit(unit) {
+        this.units.push(unit);
     }
     setSize(w, h) {
         this.size = new Victor(w, h);

@@ -31,12 +31,8 @@ export default class Level extends Component {
         for (let y of range(hh)) {
             for (let x of range(ww)) {
                 const space = level.getSpace(new Victor(x, y));
-                if (space.isWall()) {
-                    this.display.draw(x, y, '#', 'white', 'black');
-                }
-                if (space.isFloor()) {
-                    this.display.draw(x, y, '.', 'white', 'black');
-                }
+                const glyph = space.getGlyph();
+                this.display.draw(x, y, glyph.ch, glyph.fg, glyph.bg);
             }
         }
         return (

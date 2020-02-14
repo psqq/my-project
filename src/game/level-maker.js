@@ -2,6 +2,8 @@ import Level from "./level";
 import Victor from "victor";
 import Space from "./space";
 import range from 'python-range';
+import Unit from "./unit";
+import { make } from "@psqq/tools";
 
 export default class LevelMaker {
     static createExampleLevel_1() {
@@ -18,6 +20,10 @@ export default class LevelMaker {
                 }
             }
         }
+        const jorJarrus = make(Unit, o => {
+            o.type = Unit.JOR_JARRUS;
+        });
+        l.addUnit()
         return l;
     }
 }
