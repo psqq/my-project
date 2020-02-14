@@ -19,8 +19,14 @@
 
 .left-buttons {
     grid-area: left-buttons;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
 }
 
 .right-buttons {
     grid-area: right-buttons;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
 }
