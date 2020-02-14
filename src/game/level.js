@@ -19,6 +19,9 @@ export default class Level {
     addUnit(unit) {
         this.units.push(unit);
     }
+    findUnits(type) {
+        return this.units.filter(unit => unit.type == type);
+    }
     setSize(w, h) {
         this.size = new Victor(w, h);
         this.spaces = new Array(h);
