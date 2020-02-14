@@ -29,7 +29,9 @@ export default class Game extends Component {
 					<Button text="E" onClick={e => e} />
 					<Button text="R" onClick={e => console.log('R')} />
 				</div>
-				<div class={style["help-button"]}></div>
+				<div class={style["help-button"]}>
+					<Button text="Help" onClick={e => e} />
+				</div>
 				<div class={style["top-box"]}></div>
 			</div>
 		);
