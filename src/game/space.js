@@ -7,6 +7,8 @@ import Glyph from "./glyph";
 export default class Space {
     static FLOOR = shortid.generate();
     static WALL = shortid.generate();
+    static STAIR_UP = shortid.generate();
+    static STAIR_DOWN = shortid.generate();
     pos = new Victor(1, 1);
     type = Space.FLOOR;
     /** @type {Level} */
@@ -16,6 +18,12 @@ export default class Space {
     }
     isFloor() {
         return this.type == Space.FLOOR;
+    }
+    isStairUp() {
+        return this.type == Space.STAIR_UP;
+    }
+    isStairDown() {
+        return this.type == Space.STAIR_DOWN;
     }
     getUnit() {
         for(let unit of this.level.units) {
@@ -37,6 +45,16 @@ export default class Space {
         if (this.isWall()) {
             return make(Glyph, o => {
                 o.ch = '#';
+            });
+        }
+        if (this.isStairDown()) {
+            return make(Glyph, o => {
+                o.ch = '>';
+            });
+        }
+        if (this.isStairUp()) {
+            return make(Glyph, o => {
+                o.ch = '<';
             });
         }
         return make(Glyph, o => {
