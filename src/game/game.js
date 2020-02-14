@@ -11,6 +11,9 @@ export default class Game {
      * @param {Victor} dPos 
      */
     moveUnit(unit, dPos) {
-        unit.pos.add(dPos);
+        const newPos = unit.pos.clone().add(dPos);
+        if (this.level.getSpace(newPos).isMovable()) {
+            unit.pos.add(dPos);
+        }
     }
 }

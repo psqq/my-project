@@ -13,6 +13,15 @@ export default class Space {
     type = Space.FLOOR;
     /** @type {Level} */
     level = null;
+    isMovable() {
+        if ([Space.WALL].includes(this.type)) {
+            return false;
+        }
+        if (this.getUnit()) {
+            return false;
+        }
+        return true;
+    }
     isWall() {
         return this.type == Space.WALL;
     }
