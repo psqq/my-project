@@ -2,8 +2,7 @@ import Level from "./level";
 import Victor from "victor";
 import Space from "./space";
 import range from 'python-range';
-import Unit from "./unit";
-import { make } from "@psqq/tools";
+import UnitMaker from "./unit-maker";
 
 export default class LevelMaker {
     static createExampleLevel_1() {
@@ -21,11 +20,9 @@ export default class LevelMaker {
             }
         }
         l.getSpace(new Victor(1, 1)).type = Space.STAIR_UP;
-        l.getSpace(new Victor(w - 2, 1)).type = Space.STAIR_DOWN;
-        const jorJarrus = make(Unit, o => {
-            o.pos = new Victor(2, 1);
-        });
-        jorJarrus.setType(Unit.JOR_JARRUS);
+        l.getSpace(new Victor(w-2, 1)).type = Space.STAIR_DOWN;
+        const jorJarrus = UnitMaker.createJorJarrus();
+        jorJarrus.pos = new Victor(2, 1);
         l.addUnit(jorJarrus);
         return l;
     }
