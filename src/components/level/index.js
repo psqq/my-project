@@ -7,8 +7,6 @@ import Victor from 'victor';
 export default class Level extends Component {
 
     display = new Display({
-        width: 10,
-        height: 3,
         fontSize: 16,
         forceSquareRatio: true,
     });

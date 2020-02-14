@@ -18,9 +18,17 @@ export default class Space {
         return this.type == Space.FLOOR;
     }
     getUnit() {
-        return null;
+        for(let unit of this.level.units) {
+            if (unit.pos.isEqualTo(this.pos)) {
+                return unit;
+            }
+        }
     }
     getGlyph() {
+        const unit = this.getUnit();
+        if (unit) {
+            return unit.glyph;
+        }
         if (this.isFloor()) {
             return make(Glyph, o => {
                 o.ch = '.';

@@ -13,7 +13,7 @@ export default class LevelMaker {
         for (let y of range(h)) {
             for (let x of range(w)) {
                 const space = l.getSpace(new Victor(x, y));
-                if (x == 0 || y == 0 || x==w-1 || y==h-1) {
+                if (x == 0 || y == 0 || x == w - 1 || y == h - 1) {
                     space.type = Space.WALL;
                 } else {
                     space.type = Space.FLOOR;
@@ -21,9 +21,10 @@ export default class LevelMaker {
             }
         }
         const jorJarrus = make(Unit, o => {
-            o.type = Unit.JOR_JARRUS;
+            o.pos = new Victor(1, 1);
         });
-        l.addUnit()
+        jorJarrus.setType(Unit.JOR_JARRUS);
+        l.addUnit(jorJarrus);
         return l;
     }
 }
