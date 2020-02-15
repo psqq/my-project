@@ -6,29 +6,27 @@ import Button from '../../components/button';
 import UnitInfoBar from '../../components/unit-info-bar';
 import Unit from '../../game/unit';
 import Victor from 'victor';
+import MsgBox from '../../components/msgbox';
 
 export default class Game extends Component {
 	/**
 	 * @param {string} name 
 	 */
 	onMoveBtn(name) {
+		/** @type {App} */
 		const app = this.props.app;
 		const jor = app.game.level.findUnits(Unit.JOR_JARRUS)[0];
-		if (name.toLowerCase() == "left") {
-			app.game.moveUnit(jor, new Victor(-1, 0));
+		const dirByName = {
+			left: new Victor(-1, 0),
+			right: new Victor(1, 0),
+			up: new Victor(0, -1),
+			down: new Victor(0, 1),
+		};
+		const dir = dirByName[name.toLowerCase()];
+		if (dir) {
+			app.game.moveUnit(jor, dir);
 			this.forceUpdate();
-		}
-		if (name.toLowerCase() == "right") {
-			app.game.moveUnit(jor, new Victor(1, 0));
-			this.forceUpdate();
-		}
-		if (name.toLowerCase() == "up") {
-			app.game.moveUnit(jor, new Victor(0, -1));
-			this.forceUpdate();
-		}
-		if (name.toLowerCase() == "down") {
-			app.game.moveUnit(jor, new Victor(0, 1));
-			this.forceUpdate();
+			app.game.addMessage('You are moved.');
 		}
 	}
 	/**
@@ -40,7 +38,9 @@ export default class Game extends Component {
 		const jorJarrus = app.game.level.findUnits(Unit.JOR_JARRUS)[0];
 		return (
 			<div class={style["grid-container"]}>
-				<div class={style["msg-box"]}></div>
+				<div class={style["msg-box"]}>
+					<MsgBox messages={app.game.getMessages()} />
+				</div>
 				<div class={style["level"]}>
 					<Level level={app.game.level} />
 				</div>
