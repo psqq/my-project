@@ -3,6 +3,7 @@ import style from './style';
 import Level from '../../components/level';
 import App from '../../components/app';
 import Button from '../../components/button';
+import UnitInfoBar from '../../components/unit-info-bar';
 import Unit from '../../game/unit';
 import Victor from 'victor';
 
@@ -36,6 +37,7 @@ export default class Game extends Component {
 	 * @param {Object} state 
 	 */
 	render({ app }, state) {
+		const jorJarrus = app.game.level.findUnits(Unit.JOR_JARRUS)[0];
 		return (
 			<div class={style["grid-container"]}>
 				<div class={style["msg-box"]}></div>
@@ -49,15 +51,15 @@ export default class Game extends Component {
 					<Button text="Down" onClick={e => this.onMoveBtn("Down")} />
 				</div>
 				<div class={style["right-buttons"]}>
-					<Button text="Q" onClick={e => e} />
-					<Button text="W" onClick={e => e} />
-					<Button text="E" onClick={e => e} />
-					<Button text="R" onClick={e => console.log('R')} />
+					<Button text="<" onClick={e => e} />
+					<Button text=">" onClick={e => e} />
 				</div>
 				<div class={style["help-button"]}>
 					<Button text="Help" onClick={e => e} />
 				</div>
-				<div class={style["top-box"]}></div>
+				<div class={style["top-box"]}>
+					<UnitInfoBar unit={jorJarrus}/>
+				</div>
 			</div>
 		);
 	}

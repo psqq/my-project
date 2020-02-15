@@ -28,7 +28,7 @@
     grid-area: right-buttons;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 1fr;
 }
 
 .help-button {
@@ -36,4 +36,10 @@
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
+}
+
+.top-box {
+    grid-area: top-box;
+    display: grid;
+    align-self: center;
 }
